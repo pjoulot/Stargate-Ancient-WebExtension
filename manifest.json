@@ -3,7 +3,7 @@
   "manifest_version": 2,
   "name": "Stargate Ancient Font",
   "version": "1.0",
-  "homepage_url": "https://github.com/mdn/webextensions-examples/tree/master/beastify",
+  "homepage_url": "https://github.com/pjoulot/Stargate-Ancient-WebExtension",
   "icons": {
     "48": "icons/beasts-48.png"
   },
@@ -26,7 +26,9 @@
     "scripts": ["background_scripts/background.js"]
   },
   "web_accessible_resources": [
-    "fonts/anquietas.ttf"
+    "fonts/anquietas.ttf",
+    "css/popup.css",
+    "images/icon-stargate.png"
   ]
 
 }

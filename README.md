@@ -8,16 +8,27 @@ The extension changes the font of the page by the ancient one from Stargate TV S
 
 - Mozilla Firefox 45 and more
 - Google Chrome 41 and more
+- Probably Opera 33 and more
+
+Note: I have done my tests on Firefox 48 and Chrome 45, if you encounter issues, please try on the latest version of your browser.
 
 ## Versions ##
 0.7
 - Change the font by the ancient one when clicking the extension button
+
 0.8 
 - Use the ancient font by default if the extension is installed and enabled
 - Enable / Disable the font change clicking the extension button
 - Save the state "disabled" or "enabled" and restore it when the browser is launched
 
+0.9
+- Create an helper popup with the matching between ancient letters and the latin ones.
+
 ## Need to be developped ##
 
 - Change logos, use stargate ones [Needed for v1]
-- Create an helper popup with the matching between ancient letters and the latin ones.
+- Create a configuration page to remove the helper for advanced readers
+
+## Known issues ##
+
+- The first click on the extension button seems to not work properly [Needed for v1]

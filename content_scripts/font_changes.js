@@ -1,27 +1,88 @@
-function applyFont(request, sender, sendResponse) {
+function applyChanges(request, sender, sendResponse) {
+  var fontExist = document.getElementById("ancient-stargate-font-declaration");
+  if(fontExist == null) {
+    applyFont(request.fontURL);
+  }
+
+  var popinExist = document.getElementById("ancient-stargate-popup-helper");
+  if(popinExist == null) {
+    applyPopinHelper(request.popupCssURL, request.popinIconURL);
+  }
+
+  chrome.runtime.onMessage.removeListener(applyChanges);
+}
+
+function applyFont(fontFile) {
+  //Add the CSS font declaration
   var css_font_declaration = document.createElement('style');
   css_font_declaration.setAttribute('type', 'text/css');
+  css_font_declaration.id = 'ancient-stargate-font-declaration';
 
   var css_rule = "@font-face {\n";
   css_rule += "\tfont-family: \"Anquietas\";\n";
-  css_rule += "\tsrc: url('"+request.beastURL+"');\n";
+  css_rule += "\tsrc: url('"+fontFile+"');\n";
   css_rule += "}\n";
   css_font_declaration.textContent = css_rule;
 
   var head = document.querySelector('head');
   head.appendChild(css_font_declaration);
 
+  // Remove all special characters (é, è, ù etc...) to avoid non ancient letters
   formatTextNodes(document.querySelector('body'));
 
+  //Apply the ancient font for all the nodes
   var textElements = document.querySelectorAll('body, body *:not(script)');
   for( index=0; index < textElements.length; index++ ) {
     textElements[index].style.setProperty('font-family', 'Anquietas', 'important');
   }
-
-  chrome.runtime.onMessage.removeListener(applyFont);
 }
 
-chrome.runtime.onMessage.addListener(applyFont);
+function applyPopinHelper(cssFile, popinImageURL) {
+  //Add the style file
+  addPopinCssFile(cssFile);
+
+  var body = document.querySelector('body');
+
+  //Add the button to display the popin
+  var buttonPopin = document.createElement('div');
+  buttonPopin.id = 'ancient-stargate-popup-helper-button';
+  buttonPopin.setAttribute("onclick", "document.getElementById('ancient-stargate-popup-helper').style.display = 'flex'");
+  buttonPopin.style.backgroundImage = "url('"+popinImageURL+"')";
+  body.appendChild(buttonPopin);
+  
+  //Add the popin into the DOM
+  var popin = document.createElement('div');
+  popin.id = 'ancient-stargate-popup-helper';
+  popin.classList.add('cut-corner');
+
+  var alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  for ( var i = 0; i < 2; i++ ) {
+    var table = document.createElement('table');
+    var line, column, column2;
+    for ( var j = 0+i*(alphabet.length / 2); j < (alphabet.length / 2) * (i + 1); j++ )
+    {
+      var letter = alphabet[ j ];
+      line = document.createElement('tr');
+      column = document.createElement('td');
+      column.textContent = letter;
+      column2 = column.cloneNode(true);
+      line.appendChild(column);
+      line.appendChild(column2);
+      table.appendChild(line);
+    }
+    popin.appendChild(table);
+  }
+
+  var close = document.createElement('span');
+  close.setAttribute("onclick", "document.getElementById('ancient-stargate-popup-helper').style.display = 'none'");
+  close.id = 'close-ancient-stargate-popup-helper';
+  close.textContent = "X";
+  popin.appendChild(close);
+
+  body.appendChild(popin);
+}
+
+chrome.runtime.onMessage.addListener(applyChanges);
 
 function formatTextNodes(node){
   for (node=node.firstChild;node;node=node.nextSibling){
@@ -33,6 +94,29 @@ function formatTextNodes(node){
       formatTextNodes(node);
     }
   }
+}
+
+function addPopinCssFile(file)
+{
+    var allText = '';
+    var rawFile = new XMLHttpRequest();
+    rawFile.open("GET", file, true);
+    rawFile.onreadystatechange = function ()
+    {
+        if(rawFile.readyState === 4)
+        {
+            if(rawFile.status === 200 || rawFile.status == 0)
+            {
+                var head = document.querySelector('head');
+                allText = rawFile.responseText;
+                var popup_style = document.createElement('style');
+                popup_style.setAttribute('type', 'text/css');
+                popup_style.textContent = allText;
+                head.appendChild(popup_style);
+            }
+        }
+    }
+    rawFile.send(null);
 }
 
 function removeDiacritics (str) {
