@@ -34,6 +34,13 @@ function applyFont(fontFile) {
   var textElements = document.querySelectorAll('body, body *:not(script)');
   for( index=0; index < textElements.length; index++ ) {
     textElements[index].style.setProperty('font-family', 'Anquietas', 'important');
+    //Upgrade the font-size, the ancient font is really small
+    var elementFontSize = window.getComputedStyle(textElements[index])['fontSize'];
+    if (elementFontSize != null && elementFontSize != '') {
+      var fontSize = parseInt(elementFontSize, 10);
+      fontSize = fontSize + 4;
+      textElements[index].style.setProperty('font-size', fontSize+'px', 'important');
+    }
   }
 }
 
