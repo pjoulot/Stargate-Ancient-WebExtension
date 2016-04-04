@@ -1,0 +1,70 @@
+#ancient-stargate-popup-helper {
+  height: auto;
+  width: 300px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  display: none;
+  padding-top: 20px;
+  color: white !important;
+  z-index: 10001;
+}
+
+#ancient-stargate-popup-helper table {
+  border-collapse: collapse;
+  border: none;
+  width: 43% !important;
+}
+
+#ancient-stargate-popup-helper table td {
+  text-align: center;
+}
+
+#ancient-stargate-popup-helper table td:nth-child(1) {
+  font-family: Sans Serif !important;
+  font-size: 16px;
+  color: white !important;
+}
+#ancient-stargate-popup-helper table td:nth-child(2) {
+  font-family: Anquietas !important;
+  font-size: 28px;
+  color: white !important;
+}
+
+#ancient-stargate-popup-helper.cut-corner {
+  background-image: linear-gradient(to bottom left, transparent 50%, #424F5A 50%), linear-gradient(#424F5A, #424F5A), linear-gradient(#424F5A, #424F5A);
+  background-size: 25px 25px, 100% 100%, 100% 100%;
+  background-position: 100% 0%, -25px 0%, 100% 25px;
+  background-repeat: no-repeat;
+}
+#ancient-stargate-popup-helper.filled {
+  background-image: linear-gradient(black, black), linear-gradient(black, black), linear-gradient(black, black), linear-gradient(black, black), linear-gradient(to bottom left, transparent calc(50% - 1px), black calc(50% - 1px), black calc(50% + 1px), #424F5A calc(50% + 1px)), linear-gradient(#424F5A, #424F5A), linear-gradient(#424F5A, #424F5A);
+  background-size: 2px 100%, 2px 100%, 100% 2px, 100% 2px, 25px 25px, 100% 100%, 100% 100%;
+  background-position: 0% 0%, 100% 25px, -25px 0%, 0px 100%, 100% 0%, -25px 0%, 100% 25px;
+}
+
+#close-ancient-stargate-popup-helper {
+  font-family: Sans Serif !important;
+  cursor: pointer;
+  font-size: 18px;
+  color: white !important;
+  height: 25px;
+  width: 25px;
+  line-height: 25px;
+  border-radius: 50%;
+  text-align: center;
+  background-color: white;
+  color: #424F5A !important;
+}
+
+#ancient-stargate-popup-helper-button {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  width: 80px;
+  height: 80px;
+  z-index: 10000;
+  cursor: pointer;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
