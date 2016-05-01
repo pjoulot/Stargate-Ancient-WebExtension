@@ -27,12 +27,12 @@ Note: I have done my tests on Firefox 48 and Chrome 45, if you encounter issues,
 ## Need to be developped ##
 
 - Multilingual support
-- Apply CSS to the Options Page
 - Propose to choose the font
-- Remove special characters must be configurable
 - Put the icon in grey when disabled and black when enabled
 - Fork the project to create a more general addon
 
 ## Known issues ##
 
 Please report any issue that you found.
+
+- Firefox does'nt support chrome_style yet. Some CSS has been done, but it need to be fixed when chrome_style is supported.

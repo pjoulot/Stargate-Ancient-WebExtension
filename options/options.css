@@ -1,0 +1,34 @@
+body {
+  color: #333333;
+  font-family: "Open Sans", Arial;
+  font-size: 16px;
+  font-weight: 100;
+}
+button {
+  padding: 5px;
+  background-color: transparent;
+  border: solid 1px silver;
+  font-size: 14px;
+}
+button:hover {
+  cursor: pointer;
+  background-color: #EBEBEB;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 10px;
+}
+table tr:first-child {
+  width: 20%;
+}
+table tr:last-child {
+  width: 80%;
+  text-align: left;
+}
+table td {
+  padding: 5px;
+}
+table tr:not(:last-child) td {
+  border-bottom: solid 1px silver;
+}
