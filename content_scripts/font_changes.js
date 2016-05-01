@@ -43,16 +43,20 @@ function applyFont(fontFile) {
 
   //Apply the ancient font for all the nodes
   var textElements = document.querySelectorAll('body, body *:not(script)');
-  for( index=0; index < textElements.length; index++ ) {
-    textElements[index].style.setProperty('font-family', 'Anquietas', 'important');
-    //Upgrade the font-size, the ancient font is really small
-    var elementFontSize = window.getComputedStyle(textElements[index])['fontSize'];
-    if (elementFontSize != null && elementFontSize != '') {
-      var fontSize = parseInt(elementFontSize, 10);
-      fontSize = fontSize + 4;
-      textElements[index].style.setProperty('font-size', fontSize+'px', 'important');
+  var sizeChange = 0;
+  chrome.storage.local.get('fontSizeChange', (res) => {
+	sizeChange = parseInt(res.fontSizeChange) || 0;
+    for( index=0; index < textElements.length; index++ ) {
+	  textElements[index].style.setProperty('font-family', 'Anquietas', 'important');
+	  //Upgrade the font-size, the ancient font is really small
+	  var elementFontSize = window.getComputedStyle(textElements[index])['fontSize'];
+	  if (elementFontSize != null && elementFontSize != '') {
+	    var fontSize = parseInt(elementFontSize, 10);
+	    fontSize = fontSize + sizeChange;
+	    textElements[index].style.setProperty('font-size', fontSize+'px', 'important');
+	  }
     }
-  }
+  });
 }
 
 function applyPopinHelper(cssFile, popinImageURL) {

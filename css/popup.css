@@ -1,70 +1,77 @@
 #ancient-stargate-popup-helper {
-  height: auto;
-  width: 300px;
-  position: fixed;
-  bottom: 0;
-  left: 0;
+  height: auto !important;
+  width: 300px !important;
+  position: fixed !important;
+  bottom: 0 !important;
+  left: 0 !important;
   display: none;
-  padding-top: 20px;
+  padding-top: 20px !important;
   color: white !important;
-  z-index: 10001;
+  z-index: 10001 !important;
 }
 
 #ancient-stargate-popup-helper table {
-  border-collapse: collapse;
-  border: none;
+  border-collapse: collapse !important;
+  border: none !important;
   width: 43% !important;
+  background: none !important;
+}
+
+#ancient-stargate-popup-helper table tr {
+  background: none !important;
 }
 
 #ancient-stargate-popup-helper table td {
-  text-align: center;
+  text-align: center !important;
+  border: none !important;
+  background: none !important;
 }
 
 #ancient-stargate-popup-helper table td:nth-child(1) {
   font-family: Sans Serif !important;
-  font-size: 16px;
+  font-size: 16px !important;
   color: white !important;
 }
 #ancient-stargate-popup-helper table td:nth-child(2) {
   font-family: Anquietas !important;
-  font-size: 28px;
+  font-size: 28px !important;
   color: white !important;
 }
 
 #ancient-stargate-popup-helper.cut-corner {
-  background-image: linear-gradient(to bottom left, transparent 50%, #424F5A 50%), linear-gradient(#424F5A, #424F5A), linear-gradient(#424F5A, #424F5A);
-  background-size: 25px 25px, 100% 100%, 100% 100%;
-  background-position: 100% 0%, -25px 0%, 100% 25px;
-  background-repeat: no-repeat;
+  background-image: linear-gradient(to bottom left, transparent 50%, #424F5A 50%), linear-gradient(#424F5A, #424F5A), linear-gradient(#424F5A, #424F5A) !important;
+  background-size: 25px 25px, 100% 100%, 100% 100% !important;
+  background-position: 100% 0%, -25px 0%, 100% 25px !important;
+  background-repeat: no-repeat !important;
 }
 #ancient-stargate-popup-helper.filled {
-  background-image: linear-gradient(black, black), linear-gradient(black, black), linear-gradient(black, black), linear-gradient(black, black), linear-gradient(to bottom left, transparent calc(50% - 1px), black calc(50% - 1px), black calc(50% + 1px), #424F5A calc(50% + 1px)), linear-gradient(#424F5A, #424F5A), linear-gradient(#424F5A, #424F5A);
-  background-size: 2px 100%, 2px 100%, 100% 2px, 100% 2px, 25px 25px, 100% 100%, 100% 100%;
-  background-position: 0% 0%, 100% 25px, -25px 0%, 0px 100%, 100% 0%, -25px 0%, 100% 25px;
+  background-image: linear-gradient(black, black), linear-gradient(black, black), linear-gradient(black, black), linear-gradient(black, black), linear-gradient(to bottom left, transparent calc(50% - 1px), black calc(50% - 1px), black calc(50% + 1px), #424F5A calc(50% + 1px)), linear-gradient(#424F5A, #424F5A), linear-gradient(#424F5A, #424F5A) !important;
+  background-size: 2px 100%, 2px 100%, 100% 2px, 100% 2px, 25px 25px, 100% 100%, 100% 100% !important;
+  background-position: 0% 0%, 100% 25px, -25px 0%, 0px 100%, 100% 0%, -25px 0%, 100% 25px !important;
 }
 
 #close-ancient-stargate-popup-helper {
   font-family: Sans Serif !important;
-  cursor: pointer;
-  font-size: 18px;
+  cursor: pointer !important;
+  font-size: 18px !important;
   color: white !important;
-  height: 25px;
-  width: 25px;
-  line-height: 25px;
-  border-radius: 50%;
-  text-align: center;
-  background-color: white;
+  height: 25px !important;
+  width: 25px !important;
+  line-height: 25px !important;
+  border-radius: 50% !important;
+  text-align: center !important;
+  background-color: white !important;
   color: #424F5A !important;
 }
 
 #ancient-stargate-popup-helper-button {
-  position: fixed;
-  bottom: 20px;
-  left: 20px;
-  width: 80px;
-  height: 80px;
-  z-index: 10000;
-  cursor: pointer;
-  background-size: contain;
-  background-repeat: no-repeat;
+  position: fixed !important;
+  bottom: 20px !important;
+  left: 20px !important;
+  width: 80px !important;
+  height: 80px !important;
+  z-index: 10000 !important;
+  cursor: pointer !important;
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
 }
