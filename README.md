@@ -26,9 +26,13 @@ Note: I have done my tests on Firefox 48 and Chrome 45, if you encounter issues,
 
 ## Need to be developped ##
 
-- Change logos, use stargate ones [Needed for v1]
-- Create a configuration page to remove the helper for advanced readers
+- Multilingual support
+- Apply CSS to the Options Page
+- Propose to choose the font
+- Remove special characters must be configurable
+- Put the icon in grey when disabled and black when enabled
+- Fork the project to create a more general addon
 
 ## Known issues ##
 
-- The first click on the extension button seems to not work properly [Needed for v1]
+Please report any issue that you found.
