@@ -30,6 +30,11 @@ On Firefox you will find this page clicking on the options button of the addon o
 0.9
 - Create an helper popup with the matching between ancient letters and the latin ones.
 
+1.0
+- Use a stargate icon
+- Create the configuration page of the addon (Special character replacement, Enable the helper popin, Increase the font size)
+- The clicking icon change in function of the status of the addon
+
 ## Need to be developped ##
 
 - Multilingual support
