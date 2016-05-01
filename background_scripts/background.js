@@ -5,7 +5,10 @@ chrome.storage.local.get('stargateAncientFont', function (obj) {
   if(typeof obj['stargateAncientFont'] != 'undefined') {
     enable = obj['stargateAncientFont'];
   }
+  updateAddonIcon();
 });
+
+
 
 //Apply the display changes each time the tab is updated
 chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
@@ -31,4 +34,17 @@ chrome.browserAction.onClicked.addListener(function(tab) {
   chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
     chrome.tabs.reload(tabs[0].id);
   });
+  updateAddonIcon();
 });
+
+function updateAddonIcon() {
+  chrome.browserAction.setIcon({
+    path: enable ? {
+      19: "icons/icon-19.png",
+      38: "icons/icon-38.png"
+    } : {
+      19: "icons/icon-19-disabled.png",
+      38: "icons/icon-38-disabled.png"
+    }
+  });
+}

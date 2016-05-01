@@ -5,6 +5,9 @@
   "version": "1.0",
   "homepage_url": "https://github.com/pjoulot/Stargate-Ancient-WebExtension",
   "icons": {
+    "19": "icons/icon-19.png",
+	"32": "icons/icon-32.png",
+	"38": "icons/icon-38.png",
     "48": "icons/icon-48.png"
   },
   "applications": {
