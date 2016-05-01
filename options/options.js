@@ -5,6 +5,9 @@ function saveOptions(e) {
   chrome.storage.local.set({
 	fontSizeChange: document.querySelector("#font-size-change").value
   });
+  chrome.storage.local.set({
+	removeSpecialCharacters: document.querySelector("#remove-special-characters").checked
+  });
 }
 
 function restoreOptions() {
@@ -13,6 +16,9 @@ function restoreOptions() {
   });
   chrome.storage.local.get('fontSizeChange', (res) => {
     document.querySelector("#font-size-change").value = res.fontSizeChange || '';
+  });
+  chrome.storage.local.get('removeSpecialCharacters', (res) => {
+    document.querySelector("#remove-special-characters").checked = res.removeSpecialCharacters || '';
   });
 }
 

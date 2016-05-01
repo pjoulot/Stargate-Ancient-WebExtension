@@ -39,7 +39,15 @@ function applyFont(fontFile) {
   head.appendChild(css_font_declaration);
 
   // Remove all special characters (é, è, ù etc...) to avoid non ancient letters
-  formatTextNodes(document.querySelector('body'));
+  var removeSpecialCharacters = true;
+  chrome.storage.local.get('removeSpecialCharacters', (res) => {
+	if(typeof res != 'undefined') {
+	  removeSpecialCharacters = res.removeSpecialCharacters;
+	}
+	if(removeSpecialCharacters) {
+      formatTextNodes(document.querySelector('body'));
+	}
+  });
 
   //Apply the ancient font for all the nodes
   var textElements = document.querySelectorAll('body, body *:not(script)');
