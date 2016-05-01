@@ -29,6 +29,10 @@
     "fonts/anquietas.ttf",
     "css/popup.css",
     "images/icon-stargate.png"
-  ]
-
+  ],
+  "options_ui": {
+    "page": "options/options.html",
+	"chrome_style": true,
+	"open_in_tab": false
+  }
 }

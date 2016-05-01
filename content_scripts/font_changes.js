@@ -5,9 +5,20 @@ function applyChanges(request, sender, sendResponse) {
   }
 
   var popinExist = document.getElementById("ancient-stargate-popup-helper");
-  if(popinExist == null) {
-    applyPopinHelper(request.popupCssURL, request.popinIconURL);
-  }
+  var popinEnable = true;
+  chrome.storage.local.get('fontHelpPopin', function (obj) {
+    if(typeof obj['fontHelpPopin'] != 'undefined') {
+      popinEnable = obj['fontHelpPopin'];
+	  if(popinExist == null && popinEnable) {
+		applyPopinHelper(request.popupCssURL, request.popinIconURL);
+	  }
+    }
+	else {
+      if(popinExist == null) {
+		applyPopinHelper(request.popupCssURL, request.popinIconURL);
+	  }
+	}
+  });
 
   chrome.runtime.onMessage.removeListener(applyChanges);
 }
