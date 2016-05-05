@@ -76,9 +76,11 @@ function applyPopinHelper(cssFile, popinImageURL) {
   //Add the button to display the popin
   var buttonPopin = document.createElement('div');
   buttonPopin.id = 'ancient-stargate-popup-helper-button';
-  buttonPopin.setAttribute("onclick", "document.getElementById('ancient-stargate-popup-helper').style.display = 'flex'");
   buttonPopin.style.backgroundImage = "url('"+popinImageURL+"')";
   body.appendChild(buttonPopin);
+  document.getElementById('ancient-stargate-popup-helper-button').addEventListener('click', function() {
+	document.getElementById('ancient-stargate-popup-helper').style.display = 'flex';
+  });
   
   //Add the popin into the DOM
   var popin = document.createElement('div');
@@ -104,12 +106,14 @@ function applyPopinHelper(cssFile, popinImageURL) {
   }
 
   var close = document.createElement('span');
-  close.setAttribute("onclick", "document.getElementById('ancient-stargate-popup-helper').style.display = 'none'");
   close.id = 'close-ancient-stargate-popup-helper';
   close.textContent = "X";
   popin.appendChild(close);
-
   body.appendChild(popin);
+  
+  document.getElementById('close-ancient-stargate-popup-helper').addEventListener('click', function() {
+	document.getElementById('ancient-stargate-popup-helper').style.display = 'none';
+  });
 }
 
 chrome.runtime.onMessage.addListener(applyChanges);

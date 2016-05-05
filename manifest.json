@@ -3,6 +3,7 @@
   "manifest_version": 2,
   "name": "Stargate Ancient Font",
   "version": "1.0",
+  "author": "Philippe Joulot",
   "homepage_url": "https://github.com/pjoulot/Stargate-Ancient-WebExtension",
   "icons": {
     "19": "icons/icon-19.png",
@@ -13,7 +14,7 @@
   "applications": {
     "gecko": {
       "id": "ancient-font@stargate-pegasus.com",
-      "strict_min_version": "45.0.0"
+      "strict_min_version": "45.0"
     }
   },
   "permissions": [

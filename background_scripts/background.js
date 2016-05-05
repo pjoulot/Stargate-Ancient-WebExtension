@@ -12,7 +12,10 @@ chrome.storage.local.get('stargateAncientFont', function (obj) {
 
 //Apply the display changes each time the tab is updated
 chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
-  if(enable) {
+  var url = tab.url;
+  // The test on changeInfo.status is needed to avoid injecting multiple popin.
+  // Maybe separate font change and popin because we could have to apply font changes with ajax calls.
+  if (url !== undefined && changeInfo.status == "complete" && enable) {
     var fontURLValue = chrome.extension.getURL("fonts/anquietas.ttf");
     var popupCssURLValue = chrome.extension.getURL("css/popup.css");
     var popinIconURLValue = chrome.extension.getURL("images/icon-stargate.png");

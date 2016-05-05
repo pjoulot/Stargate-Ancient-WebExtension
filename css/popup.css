@@ -25,6 +25,8 @@
   text-align: center !important;
   border: none !important;
   background: none !important;
+  height: 25px !important;
+  line-height: 25px !important;
 }
 
 #ancient-stargate-popup-helper table td:nth-child(1) {
