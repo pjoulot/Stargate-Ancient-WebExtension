@@ -6,7 +6,7 @@ The extension changes the font of the page by the ancient one from Stargate TV S
 
 ## Compatibility ##
 
-- Mozilla Firefox 45 and more
+- Mozilla Firefox 48 and more
 - Google Chrome 41 and more
 - Probably Opera 33 and more
 
